@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+ 
+
+<Body background="white"> 
+
+
+<h1><p style="color:black; text-align:center;">CURRENT HOLDINGS</p></h1>
+
+<br>
+<br/>
+
+<form action="{% url 'about' %}" class="d-flex" method="POST">
+        {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Add ticker" aria-label="Search" name="ticker">
+        <button class="btn btn-outline-success" type="submit">Add Stock</button>
+      </form>
+
+<br/>
+{% for item in ticker %}
+    {{ item }} - <a href="{% url 'delete' item.id %}">Remove stock</a><br/>
+{% endfor %}
+
+
+{% endblock %}

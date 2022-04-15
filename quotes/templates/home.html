@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if ticker %}
+   {{ ticker }}
+{% endif %}
+
+
+<!Doctype Html>
+<Html>   
+
+<Body style="background-color:powderblue;"> 
+
+
+<h1><p style="color:floralwhite; text-align:center;">STOCK DATA</p></h1>
+<br/>
+<br/>
+
+ / CODE HERE / 
+ /code here /   
+
+{% if api %}
+   {% if api == "Error..." %}
+   There was an error in your input!!
+
+   {% else %}
+
+    <h2>{{ api.companyName}}</h2><br/>
+      Price : ${{ api.latestPrice }}<br/>
+      Prevous Close: ${{ api.previousClose }}<br/>
+      Change % :{{ api.changePercent }}<br/>
+      Market Cap : ${{ api.marketCap }}<br/>
+      YTD change :${{ api.ytdChange }}<br/>
+      52W High : {{ api.week52High }}<br/>
+      52W low : {{ api.week52Low }}<br/>
+      Primary Exchange : {{ api.primaryExchange }}<br/>
+
+
+   
+
+   {% endif %}
+{% endif %}
+
+
+
+
+<h1>STAY UP TO DATE VIA THESE : </h1>
+
+
+
+
+
+
+<iframe src="https://www.livemint.com/market/stock-market-news" frameborder="0" scrolling="yes"
+                                 height="512" width="650" align="left"> </iframe>  
+    
+     <iframe src="https://www.stocklinedirect.com/stock-tips.html" frameborder="0" scrolling="yes"  height="512" width="650" align="right">
+        </iframe>
+
+
+</Body>
+</Html>
+
+
+{% endblock %}
